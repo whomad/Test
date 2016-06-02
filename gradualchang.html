@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>渐变</title>
+  <style type="text/css">
+  .lineGradual{
+    width: 300px;
+    height: 300px;
+    /*background-color: yellow;*/
+    /*线性渐变*/
+    /*linear-gradient(参数1,颜色1，颜色2，颜色3)*/
+    /*参数1：从哪个方向开始渐变；*/
+  		   /*方向可以采取角度的写法：45deg;*/
+         /*方向也可以采取取值的方法：left,right,bottom,top;    left top,left bottom, right top,right bottom;*/
+         /*颜色要大于等于两个，第一个为渐变起始色，最后一个为终止色，中间是过渡色；*/
+         /*如果只给一个颜色的话，没有效果。*/
+         /*颜色可以设置从哪个开始渐变，这样能达到在一个div里面同时设置两个颜色的效果。*/
+    background: -webkit-linear-gradient(left,red 50px,yellow 50px,blue 100px);
+    /*background: -moz-linear-gradient(left,red,yellow);*/
+    /*background: -o-linear-gradient(left,red,yellow);*/
+  }
+  p{
+    /*透明色  color: transparent;*/
+    color: transparent;
+    /*描边*/
+    -webkit-text-stroke:1px red;
+    font-size: 100px;
+  }
+  .manyImage{
+    width: 800px;height: 800px;
+    border: 1px dashed red;
+    /*background-image: url(qq.png),url(zly2.png),url(dx.png);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: 0 0,70px 0,0 430px;*/
+    background: url(qq.png) 0 0 no-repeat,url(zly2.png) 70px 0 no-repeat,url(dx.png) 0 430px no-repeat;
+    /*一个div里面多张图片，图片排列*/
+  }
+  .radial{
+    width: 300px;height: 300px;
+    background-image: url(zly2.png);
+    border: 1px dashed red;
+    background: -webkit-radial-gradient(right bottom, red ,green,blue,yellow);
+    border-radius: 500px;
+  }
+  .mask{
+    width: 300px;height: 300px;
+    background-color: red;
+    background: url("zly2.png");
+    border: 20px solid red;
+    padding: 30px;
+    /*蒙版图片  蒙版图片必须带有透明部分   透明部分不显示   不透明部分按照轮廓来显示    背景图片按照蒙版图片轮廓显示*/
+    /*-webkit-mask:url("lz.png");*/
+    蒙版的一些属性
+    控制蒙版是否重复    -webkit-mask-repeat:
+    /*-webkit-mask-repeat:no-repeat;*/
+    /*蒙版图片位置*/
+    /*-webkit-mask-position:50% 50%;*/
+    /*蒙版剪切属性*/
+    /*-webkit-mask-clip:padding;*/
+    /*蒙版的起始位置*/
+    /*-webkit-mask-origin:content  border   padding;*/
+    /*蒙版线性渐变*/
+    一定要采取带有透明值的颜色
+    -webkit-mask:-webkit-gradient(linear,right top,left top,from(rgba(0, 0, 0, 1)),to(rgba(0, 0, 0, 0)));
+    /*透明*/
+    /*rgba 透明(255红色,0,0,1不透明显示)*/
+
+    /*蒙版径向渐变*/
+    -webkit-mask:-webkit-radial-gradient();
+    参数1：开始扩散的位置（点坐标）
+    参数2，3，4...：
+    色值...
+    参数与参数之间用逗号分隔
+
+
+  }
+  </style>
+</head>
+<body>
+  <div class="lineGradual">
+  </div>
+  <p>我是一个段落p</p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="manyImage"></div><br><br><br>
+  <div class="radial"></div><br><br><br>
+  <div class="mask"></div>
+</body>
+</html>
